@@ -1,0 +1,10 @@
+script(type="text/x-template" id="component-milestone")
+	tr
+		td
+			input(v-model="dueDate" v-bind:class="['form-control', {'is-invalid': validation.dueDateInvalid}]" placeholder=datePlaceholder @change="updateDueDate")
+			.text-danger(v-if="validation.dueDateInvalid")
+				p(v-for="message in validation.messages") {{ message }}
+		td
+			input.form-control(v-model="name" placeholder=namePlaceholder @change="updateName")
+		td
+			span.bi.bi-x-square.d-block.my-2.text-end.d-print-none(@click="deleteMe")

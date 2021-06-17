@@ -1,0 +1,118 @@
+[[section-project-data]]
+== Projektdaten erfassen
+
+Du kannst innerhalb einer Resourceer-Projektdatei beliebig viele Projekte erstellen. Projekte sind unterteilt in Zeitschienen. Diese Zeitschienen können in Meilensteine unterteilt werden und bilden den Rahmen für Projektaufwände.
+
+image:hierarchy.png[Baumdiagramm der Projektstruktur]
+
+=== Projekte
+
+==== Neues Projekt
+
+Durch Klicken des Plus-Symbols unter dem Graphen kannst du ein neues Projekt erstellen. Das neue Projekt wird automatisch ausgewählt.
+
+==== Namen ändern
+
+Durch Auswahl des Stift-Symbols neben dem Namen des Projekts kannst du den Namen deines Projekts jederzeit anpassen.
+
+==== Projekt löschen
+
+Neben dem Stift-Symbol befindet sich ein Kreuz-Symbol, mit dem sich das Projekt löschen lässt. Sei vorsichtig beim Löschen von Projekten: zugehörige Projektdaten werden ebenfalls gelöscht und lassen sich nicht wiederherstellen.
+
+==== Projekt auswählen
+
+Die erstellten Projekte sind als Buttons unter dem Graphen aufgelistet. Diese Buttons lassen dich das aktive Projekt auswählen. Es wird dann farblich hinterlegt. Klickst du auf den Button des aktiven Projekts, deaktivierst du das Projekt und wechselst somit in die Gesamtübersicht.
+
+=== Zeitschienen
+
+==== Neue Zeitschiene
+
+Ist ein aktives Projekt ausgewählt, kannst du das Plus-Symbol in der Tab-Leiste verwenden um dem Projekt eine neue Zeitschiene hinzuzufügen. Die neue Zeitschiene wird automatisch ausgewählt.
+
+==== Namen ändern
+
+Durch Auswahl des Stift-Symbols neben dem Namen der Zeitschiene kannst du den Namen der Zeitschiene jederzeit anpassen.
+
+==== Zeitschiene löschen
+
+Neben dem Stift-Symbol befindet sich ein Kreuz-Symbol, mit dem sich die Zeitschiene löschen lässt. Sei vorsichtig beim Löschen von Zeitschienen: zugehörige Projektdaten werden ebenfalls gelöscht und lassen sich nicht wiederherstellen.
+
+==== Zeitschiene auswählen
+
+Die erstellten Zeitschienen des aktiven Projekts werden in der Tab-Leiste aufgelistet und können dort ausgewählt werden. Der erste Reiter der Tab-Leiste gibt dir einen Überblick über alle Zeitschienen deines aktiven Projekts.
+
+==== Rahmenbedingungen festlegen
+
+Um Projektaufwände zu erfassen, musst du einen Zeitraum für die aktive Zeitschiene festlegen. Dafür benötigst du einen Start- und Endzeitpunkt. Diese Zeitpunkte werden als Paar von Kalenderwoche und Jahr im Format `KW/JJ` angegeben (`KW/JJJJ` ist auch möglich, falls du das bevorzugst).
+
+==== Beschreibung ausfüllen
+
+Durch Auswahl des Stift-Symbols im Beschreibungs-Bereich kannst du deiner aktiven Zeitschiene Freitext-Informationen hinzufügen. Um deine Beschreibung zu strukturieren, kannst du das https://de.wikipedia.org/wiki/Markdown[Markdown-Format] verwenden. Klickst du außerhalb der Beschreibungs-Textbox wird dein Text dann entsprechend formatiert angezeigt.
+
+=== Meilensteine
+
+Meilensteine können optional verwendet werden um wichtige Zeitpunkte deiner aktiven Zeitschiene zu markieren. Meilensteine werden in der Ressourcendarstellung im Graph angezeigt, solange die Zeitschiene aktiv ist.
+
+==== Neuer Meilenstein
+
+Wähle das Plus-Symbol im Meilenstein-Bereich um einen neuen Meilenstein zu erstellen.
+
+==== Meilenstein löschen
+
+Durch Auswahl des Kreuz-Symbols einer Meilenstein-Zeile kannst du einen Meilenstein wieder entfernen.
+
+==== Datum festlegen
+
+Meilensteine können nur angezeigt werden wenn ein Zeitpunkt festgelegt wurde. Zeitpunkte werden als Paar von Kalenderwoche und Jahr im Format `KW/JJ` angegeben (`KW/JJJJ` ist auch möglich, falls du das bevorzugst).
+
+==== Namen festlegen
+
+Gibst du einem Meilenstein einen Namen, wird dieser ebenfalls in der Ressourcendarstellung im Graph angezeigt.
+
+=== Prädiktionen
+
+Prädiktionen werden verwendet um geschätzte Projektaufwände über die Laufzeit der aktiven Zeitschiene zu erstellen. Werden mindestens zwei Prädiktionen angegeben, erstellt Resourceer eine prädiktive Aufwandskurve, die durch die angegebenen Punkte verläuft.
+
+Werden keine Aufwände für Start- oder Endzeitpunkt der aktiven Zeitschiene angegeben, werden diese ohne Aufwände (null Aufwand) angenommen. Das bedeutet, dass es nicht möglich ist nur einen Zeitschienenausschnitt prädiktiv zu bewerten. Der bevorzugte Weg dies zu tun, ist die Zeitschiene in mehrere Zeitschienen zu unterteilen.
+
+==== Neue Prädiktion
+
+Wähle das Plus-Symbol im Prädiktion-Bereich um eine neue Prädiktion zu erstellen. Du brauchst mindestens zwei Prädiktionen um eine prädiktive Kurve zu erstellen.
+
+Es spielt keine Rolle in welcher Reihenfolge du die Prädiktionen einträgst, das heißt Prädiktionen müssen nicht chronologisch fortlaufend sein.
+
+==== Prädiktion löschen
+
+Durch Auswahl des Kreuz-Symbols einer Prädiktions-Zeile kannst du eine Prädiktion wieder entfernen.
+
+==== Datum festlegen
+
+Zeitpunkte werden als Paar von Kalenderwoche und Jahr im Format `KW/JJ` angegeben (`KW/JJJJ` ist auch möglich, falls du das bevorzugst).
+
+==== Beschäftigte festlegen
+
+Lege fest, wie viele Beschäftigte voraussichtlich zu einem Zeitpunkt gebunden sein werden. Auch Fließkommazahlen sind hier möglich.
+
+=== Beauftragungen
+
+Beauftragungen werden verwendet um bekannte Aufwände über eine gegebene Laufzeit der aktiven Schiene zu erstellen.
+
+==== Neue Beauftragung
+
+Wähle das Plus-Symbol im Beauftragung-Bereich um eine neue Beauftragung zu erstellen.
+
+==== Beauftragung löschen
+
+Durch Auswahl des Kreuz-Symbols einer Beauftragungs-Zeile kannst du eine Prädiktion wieder entfernen.
+
+==== Zeitraum festlegen
+
+Start und Ende einer Beauftragung werden jeweils als Paar von Kalenderwoche und Jahr im Format `KW/JJ` angegeben (`KW/JJJJ` ist auch möglich, falls du das bevorzugst).
+
+==== Namen festlegen
+
+Die Vergabe eines Namens ist optional und soll dir helfen deine Beauftragungen zuzuordnen. Du kannst beispielsweise IDs eines Ticketsystems verwenden.
+
+==== Leistungstage festlegen
+
+Die Anzahl der Leistungstage die auf den angegebenen Zeitraum verteilt werden sollen. Auch Fließkommazahlen sind hier möglich.

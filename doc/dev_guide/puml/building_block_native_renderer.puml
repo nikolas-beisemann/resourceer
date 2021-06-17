@@ -1,0 +1,11 @@
+@startuml
+
+interface ipc as API
+[window]
+
+package renderer {
+	[window] --> (preload)
+	(preload) -- API
+}
+
+@enduml

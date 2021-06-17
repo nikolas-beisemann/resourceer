@@ -1,0 +1,18 @@
+script(type="text/x-template" id="component-task")
+	tr
+		td
+			input(v-model="start" v-bind:class="['form-control', {'is-invalid': validation.startInvalid}]" placeholder=datePlaceholder @change="updateStart")
+			.text-danger(v-if="validation.startInvalid")
+				p {{ validation.messages.startMessage }}
+		td
+			input(v-model="end" v-bind:class="['form-control', {'is-invalid': validation.endInvalid}]" placeholder=datePlaceholder @change="updateEnd")
+			.text-danger(v-if="validation.endInvalid")
+				p {{ validation.messages.endMessage }}
+		td
+			input.form-control(v-model="name" placeholder=namePlaceholder @change="updateName")
+		td
+			input(v-model="amount" v-bind:class="['form-control', {'is-invalid': validation.amountInvalid}]" placeholder=amountPlaceholder @change="updateAmount")
+			.text-danger(v-if="validation.amountInvalid")
+				p {{ validation.messages.amountMessage }}
+		td
+			span.bi.bi-x-square.d-block.my-2.text-end.d-print-none(@click="deleteMe")

@@ -1,0 +1,14 @@
+@startuml
+
+[util]
+(index)
+
+package analysis {
+	(assessor) --> util
+	(index) -right-> (assessor)
+	(chart-manager) --> util
+	(chart-manager) --> (assessor)
+	(index) -right-> (chart-manager)
+}
+
+@enduml

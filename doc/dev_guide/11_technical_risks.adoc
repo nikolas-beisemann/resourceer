@@ -1,0 +1,13 @@
+[[section-technical-risks]]
+== Risks and Technical Debts
+
+
+Technical debts are ordered by priority, meaning top items carry the most risk to the application.
+
+.Technical Debts
+|===
+| Debt | Description
+
+| Test native application | There is functional testing for the frontend with Selenium, but there are no tests right now for the native application. This means that any bugs regarding IPC, user menu, etc. are not detected. This may lead to regresssions.
+| Validators within Vue.js | While input validation is a user interface related task, it is also one that could be properly tested by unit tests if it were to be separated into its own module, e.g. within the `util` unit.
+|===

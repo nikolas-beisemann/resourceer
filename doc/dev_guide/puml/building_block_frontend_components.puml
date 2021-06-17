@@ -1,0 +1,32 @@
+@startuml
+
+(index)
+[util]
+[analysis]
+
+node "Common Modules" as Common {
+	[database]
+	[lang]
+	[pug]
+}
+
+package components as CMP {
+	(allocation) -down-> [util]
+	(allocation) -up-> Common
+
+	(milestone) -down-> [util]
+	(milestone) -up-> Common
+
+	(project) -down-> [analysis]
+	(project) -up-> Common
+
+	(task) -down-> [util]
+	(task) -up-> Common
+
+	(timeline) -down-> [util]
+	(timeline) -down-> [analysis]
+	(timeline) -up-> Common
+}
+(index) --> CMP
+
+@enduml

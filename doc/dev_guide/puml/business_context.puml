@@ -1,0 +1,55 @@
+@startuml
+
+left to right direction
+
+actor User as U
+
+package Database {
+	usecase "Projects" as DbProject
+	usecase "Timelines" as DbTimeline
+	usecase "Milestones" as DbMilestone
+	usecase "Predictions" as DbAllocation
+	usecase "Tasks" as DbTask
+}
+
+package Visualizations {
+	usecase "Chart" as VisChart
+	usecase "Summary" as VisSummary
+}
+
+package Formats {
+	usecase "Json" as ExJson
+	usecase "PDF" as ExPdf
+}
+
+usecase "Enter Project Data" as Modify
+usecase "Inspect Resource\nVisualizations" as Inspect
+usecase "Export Project Data" as Save
+usecase "Import Project Data" as Load
+usecase "Export Resource\nVisualizations" as Export
+
+U --> Modify
+Modify --> DbProject
+Modify --> DbTimeline
+Modify --> DbMilestone
+Modify --> DbAllocation
+Modify --> DbTask
+
+U --> Inspect
+Inspect <-- VisChart
+Inspect <-- VisSummary
+
+U --> Save
+Save --> ExJson
+
+U --> Load
+Load <-- ExJson
+
+U --> Export
+Export --> ExPdf
+
+Database -up-> Visualizations
+Database <--> ExJson
+Database -up-> ExPdf
+
+@enduml

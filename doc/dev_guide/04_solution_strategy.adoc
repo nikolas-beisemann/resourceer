@@ -1,0 +1,65 @@
+[[section-solution-strategy]]
+== Solution Strategy
+
+
+image:technologies.png[Technologies]
+
+Resourceer is, in essence, a single user web application. This approach allows it to be operating system agnostic. The https://www.electronjs.org/[Electron framework] is used as a deployment mechanism to provide the look and feel of a native application, regardless of the host operating system.
+
+.Technology Stack
+|===
+| Technology | Description
+
+| https://v3.vuejs.org/[Vue.js 3] | Javascript framework used for building the user interface.
+| https://pugjs.org/[Pug] | Template framework used for generating HTML views.
+| In-Memory Database | Rudimentary SQL-like database access for project data. The data is managed within memory, and only synchronized when the user specifies to export or import to or from the file system.
+| https://www.electronjs.org/[Electron] | Framework for building cross-platform desktop apps from web applications.
+| Operating System | Any operating system that is supported by the Electron framework.
+|===
+
+=== Build Pipeline
+
+https://gulpjs.com/[Gulp] is used for building and testing the application. For maintainability of the pipeline, tasks are stored in separate files within the `tasks/` directory. The main `gulpfile.js` in the root directory only exposes some of these tasks, or combinations thereof to the user.
+
+.Exported Gulp Tasks
+|===
+| Task | Description
+
+| `npx gulp build` | Cleans, and builds the full application. No tests are executed.
+| `npx gulp unittests` | Only runs static code analysis and unit tests, skipping functional testing.
+| `npx gulp tests` | Static code analysis, unit tests, and functional testing.
+| `npx gulp unitdev` | A blocking task, executing unit tests when changes are detected. Useful for noticing any regressions early in development.
+| `npx gulp docs` | Builds the developer's guide and the user guide.
+| `npx gulp clean` | Removes all produced output files.
+| `npx gulp` | Default task. Chains `tests`, and `unitdev`. A good starting point for development.
+|===
+
+=== Test Strategy
+
+The web application, and its native backend are decoupled, only communicating over a data interface, to be able to test the web application platform independently.
+
+Within the web application, the user interface has been decoupled from business logic. This enables unit testing of the business logic, while ensuring the integration of user interface and business logic using functional testing.
+
+.Types of Tests
+|===
+| Type | Description
+| Unit Tests | https://jasmine.github.io/[Jasmine] is used for testing the business logic. Foreach business logic module `XXX.js`, there is a respective `XXX-spec.js` file within the `spec/` directory.
+| Functional Tests | https://jasmine.github.io/[Jasmine] and https://www.selenium.dev/[Selenium] are used for testing the user interface. These tests are executed within the https://www.mozilla.org/de/firefox/new/[Firefox browser]. Functional tests are written on user story basis. For each implemented user story, there is a `XXX-story.js` file within the `functional/` directory.
+|===
+
+=== User Interface
+
+image:vue_components.png[Vue.js Components]
+
+For easy maintainance and extensibility, the user interface is split into components, analogue to the database configuration. Foreach component, there is a dedicated view file, to keep the views manageable. Due to the complexity of the timeline view, it is split again into several view files.
+
+.UI Third Party Modules
+|===
+| Module | Description
+
+| https://getbootstrap.com/[Bootstrap 5] | Front-end toolkit, used for styling the application in a modern and user friendly way.
+| https://www.chartjs.org/[Chart.js] | Javascript charting for resource visualizations.
+| https://www.chartjs.org/chartjs-plugin-annotation/[Chart.js Annotation Plugin] | Plugin for annotating resource visualizations, used for milestones.
+| https://jquery.com/[jQuery] | Javascript library used for easy DOM access.
+| https://markdown-it.github.io/[markdown-it] | Markdown parser used to allow user formatting in description text boxes.
+|===

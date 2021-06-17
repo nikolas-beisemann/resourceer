@@ -1,0 +1,118 @@
+[[section-project-data]]
+== Enter Project Data
+
+Within a Resourceer project file you can create as many projects as you see fit. Projects are divided into timelines. These timelines can be further organized using milestones, and constitute the time frame for your project efforts.
+
+image:hierarchy.png[Diagram of projects structure]
+
+=== Projects
+
+==== New Project
+
+Click the plus symbol under the graph to create a new project. The new project is activated for you.
+
+==== Change Name
+
+Click the pen symbol next to the project's name to modify your project's name.
+
+==== Delete Project
+
+Next to the pen symbol you can find the cross symbol. Use it to delete the active project. Be careful with that: child project data is deleted as well, and recovery is not possible.
+
+==== Select Project
+
+Available projects are displayed as buttons below the graph. Clicking these buttons lets you select the currently active project. You can identify the active project by the fill state of the button. If you click the button of the active project, the project is deactivated, and you are presented the overall summary of all projects.
+
+=== Timelines
+
+==== New Timeline
+
+Given an active project, click the plus symbol in the tab navigation bar to create a new timeline. The new timeline is activated for you.
+
+==== Change Name
+
+Using the pen symbol next to the timeline's name you can modify your timeline's name.
+
+==== Delete Timeline
+
+Next to the pen symbol you can find the cross symbol. Use it to delete the active timeline. Be careful with that: child project data is deleted as well, and recovery is not possible.
+
+==== Select Timeline
+
+By clicking on the respective tab within the tab navigation bar you can choose between the timelines of your active project. The first tab leads you to a summary of all timelines.
+
+==== Set Parameters
+
+Precondition for effort calculations is that your timeline has a defined start and end date. The dates need to be formatted as a pair of calendar week and year like `CW/YY` or `CW/YYYY`.
+
+==== Change Description
+
+Click the pen symbol in the description accordion to add more information to your active timeline. You can use https://en.wikipedia.org/wiki/Markdown[Markdown syntax] for formatting your description. The rendered text is displayed once you click outside the area of the description text box.
+
+=== Milestones
+
+Milestones are optional, and may be used to display important time points within your active timeline within the graph.
+
+==== New Milestone
+
+Click the plus symbol in the milestone accordion to create a new milestone.
+
+==== Delete Milestone
+
+Click the cross symbol on the right hand side of a milestone row to remove the milestone.
+
+==== Choose Date
+
+Milestones are only displayed when supplied with a date. These dates are given as a pair of calendar week and year like `CW/YY` or `CW/YYYY`.
+
+==== Change Name
+
+If you name your milestone, the name is displayed within the graph next to your milestone indicator line.
+
+=== Predictions
+
+Predictions are used to express estimated efforts over the runtime of the active timeline. When at least two prediction points are entered, Resourceer creates a predictive curve intersecting the prediction points.
+
+Start and end point of the timeline are presumed to be without effort (zero) if no explicit values are given. Thus you cannot create predictions for only a certain time frame within the active timeline. The recommended way around this is by splitting the timeline into several timelines.
+
+==== New Prediction
+
+Click the plus symbol in the prediction accordion to create a new prediction. You need at least two predictions to create a predictive curve.
+
+Order of predictions is not important, meaning you do not need to order your predictions chronologically.
+
+==== Delete Prediction
+
+Click the cross symbol on the right hand side of a prediction row to remove the prediction.
+
+==== Choose Date
+
+Dates are given as a pair of calendar week and year like `CW/YY` or `CW/YYYY`.
+
+==== Estimate Workforce
+
+You can use floating point numbers to estimate the number of employees that will likely be bound at the given time point.
+
+=== Tasks
+
+Tasks are used to express known efforts over a given time period within the active timeline.
+
+==== New Task
+
+Click the plus symbol in the task accordion to create a new task.
+
+==== Delete Task
+
+Click the cross symbol on the right hand side of a task row to remove the task.
+
+==== Choose Time Frame
+
+Start and end date are given as pairs of calendar week and year like `CW/YY` or `CW/YYYY`.
+
+==== Choose Name
+
+Choosing a name is optional and is intended to aid you in identifying your tasks. You could, for instance, use IDs of your ticketing system here.
+
+==== Chose Working Days
+
+The number of working days to be distributed within the given time frame. Floating point numbers can be used.

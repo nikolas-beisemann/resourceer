@@ -1,0 +1,13 @@
+= Resourceer - User Guide
+Nikolas Beisemann <nikolas@disroot.org>
+:description:
+:toc:
+:imagesdir: ./assets
+
+:numbered:
+
+include::01_introduction.adoc[]
+
+include::02_project_data.adoc[]
+
+include::03_data_analysis.adoc[]

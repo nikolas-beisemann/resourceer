@@ -1,0 +1,89 @@
+script(type="text/x-template" id="component-project")
+	.row.my-3
+		h1(v-if="!editable")
+			|{{ name }}
+			span.bi.bi-pencil-square.mx-3.d-print-none(@click="titleEdit")
+			span.bi.bi-x-square.d-print-none(@click="askedToDelete")
+		input#project-title.form-control.form-control-lg(v-else v-model="name" @change="titleUpdate" @focusout="titleLeave" placeholder=namePlaceholder)
+		.alert.alert-danger(v-if="confirmDelete")
+			| #{confirmation}
+			button.btn.btn-danger.mx-3(type="button" @click="deleteMe") #{yes}
+			button.btn.btn-primary(type="button" @click="doNotDelete") #{no}
+	.row.my-3
+		nav
+			.nav.nav-tabs.mb-3#timelines(role="tablist")
+				button(type="button" role="tab" v-bind:aria-selected="active === 0" v-bind:class="['nav-link', {'active': active === 0}]" @click="showSummary")
+					span #{timelineSummary}
+				button(v-for="timeline in timelines" type="button" role="tab" v-bind:aria-selected="timeline.id === active" v-bind:class="['nav-link', {'active': timeline.id === active}]" @click="selectTimeline(timeline)")
+					span(v-if="!timelineEditable || timeline.id !== active")
+						| {{ timeline.name }}
+						span.bi.bi-pencil-square.mx-1.d-print-none(@click="timelineEdit")
+						span.bi.bi-x-square.d-print-none(@click="timelineAskDelete")
+					input#timeline-title.form-control(v-else v-model="timeline.name" @change="timelineUpdate(timeline)" @focusout="timelineLeave" placeholder=namePlaceholder)
+				button.nav-link.d-print-none(type="button" role="tab" aria-selected="false" @click="createTimeline")
+					span.bi.bi-plus-square
+	.row.tab-content(v-if="active !== 0")
+		.alert.alert-danger(v-if="confirmTimelineDelete")
+			| #{confirmation}
+			button.btn.btn-danger.mx-3(type="button" @click="timelineDelete") #{yes}
+			button.btn.btn-primary(type="button" @click="timelineKeep") #{no}
+		timeline(v-bind:id="active" @recalculate="recalculate")
+	#summary.row.tab-content(v-else)
+		table#summary-t1.table.my-3
+			tbody
+				tr
+					th(scope="row") #{numTimelines}
+					td {{ timelines.length }}
+				tr
+					th(scope="row") #{timeline.start}
+					td {{ summary.start }}
+				tr
+					th(scope="row") #{timeline.end}
+					td {{ summary.end }}
+				tr
+					th(scope="row") #{timeline.runtime}
+					td {{ summary.runtime }}
+				tr
+					th(scope="row") #{timeline.workdays}
+					td {{ summary.total.duration }}
+				tr
+					th(scope="row") #{timeline.numQuarters}
+					td {{ summary.numQuarters }}
+		table#summary-t2.table.my-3
+			thead
+				tr
+					th(scope="col")
+					th(scope="col") #{timeline.personDays}
+					th(scope="col") #{timeline.workforce}
+			tbody
+				tr
+					td #{timeline.amountTimeline}
+					td {{ summary.total.timelineAllocated }}
+					td {{ summary.total.timelineWorkforce }}
+				tr
+					td #{timeline.amountTasks}
+					td {{ summary.total.taskAllocated }}
+					td {{ summary.total.taskWorkforce }}
+				tr
+					td
+						strong #{timeline.sum}
+					td
+						strong {{ summary.total.allocated }}
+					td
+						strong {{ summary.total.workforce }}
+		table#summary-t3.table.my-3
+			thead
+				tr
+					th(scope="col") #{timeline.quarter}
+					th(scope="col") #{timeline.workdays}
+					th(scope="col") #{timeline.personDays}
+					th(scope="col") #{timeline.workforce}
+			tbody
+				tr(v-if="summary.quarters.length>0" v-for="quarter in summary.quarters")
+					td {{ quarter.label }}
+					td {{ quarter.duration }}
+					td {{ quarter.allocated }}
+					td {{ quarter.workforce }}
+				tr(v-else)
+					td(colspan="4") #{timeline.noQuarters}
+		.alert.alert-secondary.text-center #{timeline.noticeRounding}

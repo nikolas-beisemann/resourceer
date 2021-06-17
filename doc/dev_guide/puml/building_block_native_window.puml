@@ -1,0 +1,17 @@
+@startuml
+
+interface ipc as API
+(index)
+[renderer]
+
+package window {
+	(index) --> (app)
+	(app) -- API
+	(app) --> (about)
+	(app) --> (dialog)
+	(app) --> (menu)
+	(app) --> (user-guide)
+	(app) --> [renderer]
+}
+
+@enduml

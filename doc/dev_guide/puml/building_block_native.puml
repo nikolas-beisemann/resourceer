@@ -1,0 +1,15 @@
+@startuml
+
+interface ipc as API
+(index)
+[lang]
+
+package native {
+	(index) -right-> [window]
+	[window] --> [lang]
+	[renderer] <-- [window]
+	[window] -right- API
+	[renderer] -right- API
+}
+
+@enduml

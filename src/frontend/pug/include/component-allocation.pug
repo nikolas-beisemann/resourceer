@@ -1,0 +1,12 @@
+script(type="text/x-template" id="component-allocation")
+	tr
+		td
+			input(v-model="date" v-bind:class="['form-control', {'is-invalid': validation.dateInvalid}]" placeholder=datePlaceholder @change="updateDate")
+			.text-danger(v-if="validation.dateInvalid")
+				p {{ validation.messages.dateMessage }}
+		td
+			input(v-model="amount" v-bind:class="['form-control', {'is-invalid': validation.amountInvalid}]" placeholder=amountPlaceholder @change="updateAmount")
+			.text-danger(v-if="validation.amountInvalid")
+				p {{ validation.messages.amountMessage }}
+		td
+			span.bi.bi-x-square.d-block.my-2.text-end.d-print-none(@click="deleteMe")

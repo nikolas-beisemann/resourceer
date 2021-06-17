@@ -1,0 +1,14 @@
+#timeline-desc.accordion
+	.accordion-item
+		h2#timeline-desc-header.accordion-header
+			button.accordion-button(type="button" data-bs-toggle="collapse" data-bs-target="#timeline-desc-collapse" aria-expanded="true" aria-controls="timeline-param-collapse") #{timeline.description}
+		#timeline-desc-collapse.accordion-collapse.collapse.show(aria-labelledby="timeline-desc-header" data-bs-parent="#timeline-desc")
+			.accordion-body.container-xl(v-if="!descriptionEditable")
+				.row
+					p.col-11(v-if="description.length === 0") #{timeline.noDescription}
+					#description-content.col-11(v-else v-html="descriptionMarkdown")
+					p.col-1.text-end.d-print-none
+						span.bi.bi-pencil-square(@click="descriptionEdit")
+			.accordion-body(v-else)
+				.form-group
+					textarea#mdeditor.form-control(v-model="description" rows="18" placeholder=timeline.mdPlaceholder @change="descriptionUpdate" @focusout="descriptionLeave")

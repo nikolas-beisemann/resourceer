@@ -1,0 +1,21 @@
+[[section-design-decisions]]
+== Design Decisions
+
+
+=== Localization
+
+.Decision
+****
+* Json files containing translations.
+* Used by calling `require` on one of these files.
+* Configuration which file is used occurs during build time.
+****
+
+Resource management is a specialized field with technical vocabulary. This makes it important for users to have the application available in a language they are fluent with.
+
+There are projects like https://www.i18next.com/[i18next] providing localization support, which scale well for both growing complexity in development, as well as intricacies of different languages.
+
+A minimal Json approach, containing simple localization strings has been chosen instead. This is due to
+
+* _Resource constraints_: Learning to use localization frameworks is time intensive, and it was decided that time was better spent achieving a minimal viable product.
+* _Complexity_: Resourceer is not using complex text structures, but rather short phrases, e.g. buttons or headlines. This is covered quite well by a simple Json file.

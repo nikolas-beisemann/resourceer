@@ -1,0 +1,22 @@
+#timeline-task.accordion
+	.accordion-item
+		h2#timeline-task-header.accordion-header
+			button.accordion-button(type="button" data-bs-toggle="collapse" data-bs-target="#timeline-task-collapse" aria-expanded="true" aria-controls="timeline-task-collapse") #{timeline.tasks}
+		#timeline-task-collapse.accordion-collapse.collapse.show(aria-labelledby="timeline-task-header" data-bs-parent="#timeline-task")
+			.accordion-body
+				table.table
+					thead
+						tr
+							th(scope="col") #{timeline.start}
+							th(scope="col") #{timeline.end}
+							th(scope="col") #{namePlaceholder}
+							th(scope="col") #{timeline.personDays}
+							th(scope="col")
+					tbody
+						tr(v-if="tasks.length === 0")
+							td(colspan="5") #{timeline.noTasks}
+						task(v-else v-for="task in tasks" v-bind:id="task.id" v-bind:start-date="startDate" v-bind:end-date="endDate" @recalculate="recalculate" @delete="deleteTask")
+					tfoot.d-print-none
+						tr
+							td(colspan="5")
+								span.bi.bi-plus-square(@click="createTask")

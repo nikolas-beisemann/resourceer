@@ -1,0 +1,88 @@
+doctype html
+html(lang=identifier)
+	head
+		meta(charset="utf-8")
+		meta(name="viewport" content="width=device-width,initial-scale=1")
+		title #{title}
+
+		link(href="css/bootstrap.min.css" rel="stylesheet")
+		link(href="css/bootstrap-icons.css" rel="stylesheet")
+	body
+		.container-xl
+			.row.mb-5
+				canvas#visual
+			#app.container-xl.row
+				.row.my-3.d-print-none
+					ul#projects.nav.nav-pills
+						li.nav-item(v-for="project in projects")
+							a(href="#" v-bind:class="['nav-link', {'active': active === project.id}]" @click="selectProject(project.id)") {{ project.name }}
+						li.nav-item
+							a.nav-link.bi.bi-plus-square(href="#" @click="createProject")
+				project(v-if="active !== 0" v-bind:id="active" @title-update="updateProject" @delete-project="deletedProject" @select-timeline="selectTimeline" @recalculate="recalculate")
+				#summary.row(v-else)
+					h1.my-3 #{projectSummary}
+					table#summary-t1.table.my-3
+						tbody
+							tr
+								th(scope="row") #{numProjects}
+								td {{ projects.length }}
+							tr
+								th(scope="row") #{timeline.start}
+								td {{ summary.start }}
+							tr
+								th(scope="row") #{timeline.end}
+								td {{ summary.end }}
+							tr
+								th(scope="row") #{timeline.runtime}
+								td {{ summary.runtime }}
+							tr
+								th(scope="row") #{timeline.workdays}
+								td {{ summary.total.duration }}
+							tr
+								th(scope="row") #{timeline.numQuarters}
+								td {{ summary.numQuarters }}
+					table#summary-t2.table.my-3
+						thead
+							tr
+								th(scope="col")
+								th(scope="col") #{timeline.personDays}
+								th(scope="col") #{timeline.workforce}
+						tbody
+							tr
+								td #{timeline.amountTimeline}
+								td {{ summary.total.timelineAllocated }}
+								td {{ summary.total.timelineWorkforce }}
+							tr
+								td #{timeline.amountTasks}
+								td {{ summary.total.taskAllocated }}
+								td {{ summary.total.taskWorkforce }}
+							tr
+								td 
+									strong #{timeline.sum}
+								td 
+									strong {{ summary.total.allocated }}
+								td 
+									strong {{ summary.total.workforce }}
+					table#summary-t3.table.my-3
+						thead
+							tr
+								th(scope="col") #{timeline.quarter}
+								th(scope="col") #{timeline.workdays}
+								th(scope="col") #{timeline.personDays}
+								th(scope="col") #{timeline.workforce}
+						tbody
+							tr(v-if="summary.quarters.length>0" v-for="quarter in summary.quarters")
+								td {{ quarter.label }}
+								td {{ quarter.duration }}
+								td {{ quarter.allocated }}
+								td {{ quarter.workforce }}
+							tr(v-else)
+								td(colspan="4") #{timeline.noQuarters}
+					.alert.alert-secondary.text-center #{timeline.noticeRounding}
+
+		include include/component-project.pug
+		include include/component-timeline.pug
+		include include/component-milestone.pug
+		include include/component-allocation.pug
+		include include/component-task.pug
+		script(src="js/resourceer.bundle.js")

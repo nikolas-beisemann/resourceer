@@ -1,0 +1,20 @@
+#timeline-alloc.accordion
+	.accordion-item
+		h2#timeline-alloc-header.accordion-header
+			button.accordion-button(type="button" data-bs-toggle="collapse" data-bs-target="#timeline-alloc-collapse" aria-expanded="true" aria-controls="timeline-alloc-collapse") #{timeline.predictions}
+		#timeline-alloc-collapse.accordion-collapse.collapse.show(aria-labelledby="timeline-alloc-header" data-bs-parent="#timeline-alloc")
+			.accordion-body
+				table.table
+					thead
+						tr
+							th(scope="col") #{timeline.date}
+							th(scope="col") #{timeline.workforce}
+							th(scope="col")
+					tbody
+						tr(v-if="allocations.length === 0")
+							td(colspan="3") #{timeline.noPredictions}
+						allocation(v-else v-for="allocation in allocations" v-bind:id="allocation.id" v-bind:start-date="startDate" v-bind:end-date="endDate" @recalculate="recalculate" @delete="deleteAllocation")
+					tfoot.d-print-none
+						tr
+							td(colspan="3")
+								span.bi.bi-plus-square(@click="createAllocation")

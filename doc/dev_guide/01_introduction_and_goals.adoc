@@ -1,0 +1,30 @@
+[[section-introduction-and-goals]]
+== Introduction and Goals
+
+
+Resourceer was created as an easy to use tool for project resource management that is pleasing to work with.
+
+While there is a lot of tooling for project management around, these tools are often:
+
+* _Biased about your processes_: only works for traditional project management, or only works for agile project management.
+* _Hard to learn_: needs extensive training to utilize properly.
+* _Overloaded_: tries to solve all your problems with project management.
+
+Resourceer follows the Unix philosophy:
+
+* _Write programs that do one thing and do it well_: allow to capture predictive and deterministic project efforts, and create a textual and visual representation of that data.
+* _Write programs that work together_: save the captured user in a format that is easy for other programs to understand and work with.
+
+Resourceer acknowledges that there are multiple operating systems around, and strives for supporting these without restrictions.
+
+=== Requirement Overview
+
+Resourceer is driven by user stories. These stories also serve as functional tests for the application. They can be found in the `functional/` directory.
+
+The requirements of algorithmic units is captured by unit tests. They can be found in the `spec/` directory.
+
+=== Quality Goals
+
+. *Operability*: The application should be easy to learn and use. Prefer usability over complex power-user features.
+. *Maintainability*: The application should be easily modifiable for future bugfixes and extensions. This is ensured by good test coverage within unit and functional tests.
+. *Transferability*: The application should run on Windows and Linux.

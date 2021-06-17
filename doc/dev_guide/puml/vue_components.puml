@@ -1,0 +1,16 @@
+@startuml
+
+component "Application" <<index.js>> as App
+component "Project" <<component>> as CProject
+component "Timeline" <<component>> as CTimeline
+component "Milestone" <<component>> as CMilestone
+component "Allocation" <<component>> as CAllocation
+component "Task" <<component>> as CTask
+
+App -down-> CProject
+CProject -down-> CTimeline
+CTimeline -down-> CMilestone
+CTimeline -down-> CAllocation
+CTimeline -down-> CTask
+
+@enduml

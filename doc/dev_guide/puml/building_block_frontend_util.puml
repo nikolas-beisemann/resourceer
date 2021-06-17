@@ -1,0 +1,13 @@
+@startuml
+
+[analysis]
+[components]
+
+package util {
+	[analysis] --> (calendar-week)
+	[analysis] --> (catmull-rom)
+
+	[components] --> (calendar-week)
+}
+
+@enduml

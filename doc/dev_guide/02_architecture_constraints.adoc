@@ -1,0 +1,19 @@
+[[section-architecture-constraints]]
+== Architecture Constraints
+
+
+Pull requests are only admitted when following these rules:
+
+* Only these languages are used:
+** Javascript for code or build system changes. Modern Javascript is encouraged.
+** https://pugjs.org/[Pug] for view changes.
+** https://asciidoctor.org/[Asciidoctor] for development and user guide changes.
+* Javascript code is passing npm test, which means:
+** The code passes linting (including coding guidelines).
+** There are unit tests for algorithmic changes, and they pass.
+** There are user stories as functional tests for new features, and they pass.
+* No hardcoded text output, instead the localization files in `src/lang` are used. When entries are added, they are added for all supported languages (an engine translation is fine).
+* No manual steps are required for building the product. Instead the https://gulpjs.com/[Gulp] pipeline is used.
+* Changes are documented appropriately in the developer's guide (this document), and the user's guide for all supported languages (an engine translation is fine).
+
+Following these rules does not guarantee admission. Especially new features might collide with the intent of Resourceer. It is advisable, though not required, to create a feature request with your user story before submitting a pull request.

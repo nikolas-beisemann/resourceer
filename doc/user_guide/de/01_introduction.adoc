@@ -1,0 +1,14 @@
+[[section-introduction]]
+== Einleitung
+
+Resourceer ist ein Tool für Ressourcenmanagement. Mit diesem Tool kannst du Aufwände für die verschiedenen Projektabschnitte deiner Projekte schätzen, oder bekannte Aufwände eintragen. Du erhältst dafür Auswertungen deiner Ressourcen die dir helfen, deine Projekte zu planen.
+
+image:project-total.png[Beispiel einer Gesamtauswertung]
+
+Resourceer ist
+
+* _leicht zu benutzen_: Tools zum Ressourcenmanagement sollten intuitiv zu verwenden sein und dich möglichst wenig einschränken, damit du nicht wieder auf Tabellenkalkulation zurückfallen musst.
+* _unvoreingenommen gegenüber Projektstrukturen_: Ob du für ein Dev-Team eines kurzlebigen Projekts planst, oder für tausende Mitarbeiter in Matrix-Strukturen; Resourceer erlaubt dir durch die Kombination von prädiktiven und bekannten Aufwänden beliebig grob und fein zu planen.
+* _unvoreingenommen gegenüber Prozessen_: Ressourcenmanagement sollte dich nicht in deiner Wahl beeinflussen, ob klassiche, hybride, oder agile Entwicklung das richtige für dein Projekt ist.
+* _verfügbar auf Windows und Linux_: Verschiedene Menschen benutzen verschiedene Betriebssysteme und das ist in Ordnung. Resourceer kannst du ohne Einschränkungen auf Windows und Linux verwenden.
+* _Open Source_: Du kannst Resourceer kostenfrei für deine Ressourcenplanung verwenden. Dein Unternehmen kann Resourceer sogar anpassen und so noch besser für deine Anwendungsfälle gestalten, sofern diese Änderungen ebenfalls veröffentlicht werden.

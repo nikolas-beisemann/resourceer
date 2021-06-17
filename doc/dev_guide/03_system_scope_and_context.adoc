@@ -1,0 +1,43 @@
+[[section-system-scope-and-context]]
+== System Scope and Context
+
+
+image:business_context.png[Business Context]
+
+.Use Cases
+|===
+| Use Case | Description
+
+| Enter Project Data | The user manages all project data needed for resource planning. The operations provided for each database are create, read, update, and delete.
+| Inspect Resource Visualizations | The application uses the project data to generate different visualizations of these data, the user can then inspect to plan his resources.
+| Export Project Data | The stored project data can be exported, either for resuming work on them, or to pass them to other tools.
+| Import Project Data | Exported project data can be imported to resume work.
+| Export Resource Visualizations | The calculated resource visualizations can be exported for presentation or review.
+|===
+
+.Database Tables
+|===
+| Table | Description
+
+| Projects | All resource planning is separated into projects. All resources may be managed in a single project, or split among several projects. This allows Resourceer to be agnostic about organizational constraints.
+| Timelines | Each project may have any number of timelines attached to it. A timeline is a planned project iteration with a definitive start and end date. This can be as short as a sprint, or span over multiple years.
+| Milestones | Each timeline may have any number of milestones attached to it. While milestones are not used for any calculations, they are often of paramount importance when planning resources, and thus considered in visualizations.
+| Predictions | Each timeline may have any number of predictions attached to it. Predictions are used for expressing a resource allocation at a given time point. A resource allocation curve is produced by these predictions. The level of certainty in the predictions can be shown by the number of predictions made.
+| Tasks | Each timeline may have any number of tasks attached to it. Tasks are used for expressing a known amount of effort for a given time period.
+|===
+
+.Types of Visualizations
+|===
+| Visualization | Description
+
+| Chart | The application uses charts to visually represent the project data. This allows the user to quickly get an overview of the managed resources. This is helpful for identifying issues quickly and early, as well as presenting the resource management to peers.
+| Summary | Summaries are textual representations of the project data. They include more in-depth calculations, and thus are great for further analysis of resource management.
+|===
+
+.Export Formats
+|===
+| Format | Description
+
+| Json | The Json format is used for exporting the project data. Being a plain text format, it can be exchanged easily, be it for usage in other tools, or version control, or history comparisons. It is also the format used for importing data to continue working on it. Values which are derived from the project data are not exported.
+| PDF | The PDF format is used for exporting project data and visual representations of the project data. These documents can be used for presenting the resource management to peers. This is usually a trusted format to distribute as a mail attachment, and can be printed if desired.
+|===

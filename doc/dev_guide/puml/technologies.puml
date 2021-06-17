@@ -1,0 +1,23 @@
+@startuml
+
+node "Resourceer" {
+	package "Web Application" as App {
+		component "Vue.js 3" <<UI Framework>> as Vue
+		component "Pug" <<Views>> as Pug
+		database "In-Memory" as Db
+
+		Vue <-- Pug
+		Vue <--> Db
+	}
+	package "Native Application" as Native {
+		component "Electron" as Electron
+	}
+
+	Native <--> App: Data exchange on user event
+}
+
+interface "File Storage" as FS
+[Operating System] <-- Native
+[Operating System] -right- FS
+
+@enduml

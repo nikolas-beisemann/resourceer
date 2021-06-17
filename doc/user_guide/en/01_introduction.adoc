@@ -1,0 +1,14 @@
+[[section-introduction]]
+== Introduction
+
+Resourceer is a tool for resource management. With this tool you can estimate efforts for the various stages of your projects, or register known efforts. You gain analysis insights of your resources to help you plan your projects.
+
+image:project-total.png[Beispiel einer Gesamtauswertung]
+
+Resourceer is
+
+* _easy to use_: Tools for resource management should be intuitive to use. They should put as little restrictions as possible on you, so that you can finally turn your back on spreadsheets for resource planning.
+* _unbiased towards project structures_: Whether you are planning for a dev team working on a short lived project, or thousands of employees in matrix structures; Resourceer lets you plan as rough or detailed as you want to by combining predictive with deterministic efforts.
+* _unbiased towards processes_: Resource management should not be opinionated towards classical, hybrid, or agile development processes.
+* _available for Windows and Linux_: Different people use different operating systems and that is okay. You can use Resourceer on Windows and Linux without restrictions.
+* _Open Source_: You can use Resourceer without charge for your resource planning. Your organization can even adapt Resourceer to tailor it even better for your use cases, given that your organization is prepared to publish these changes.

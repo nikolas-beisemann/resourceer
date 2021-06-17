@@ -1,0 +1,18 @@
+doctype html
+html(lang=identifier)
+	head
+		meta(charset="utf-8")
+		meta(name="viewport" content="width=device-width,initial-scale=1")
+		title #{about.title}
+
+		link(href="css/bootstrap.min.css" rel="stylesheet")
+		link(href="css/bootstrap-icons.css" rel="stylesheet")
+	body
+		.px-4.py-5.my-5.text-center
+			h1.display-5.fw-bold Resourceer
+			.col-lg-6.mx-auto
+				p.lead.mb-4 Version v#{version}
+				p.lead.mb-4 #{about.copyright}
+				.d-grid.gap-2.d-sm-flex.justify-content-sm-center
+					a.btn.btn-primary.btn-lg.px-4.gap-3(href="https://github.com/nikolas-beisemann/resourceer") #{about.website}
+					a.btn.btn-secondary.btn-lg.px-4.gap-3(href="mailto:nikolas@disroot.org") #{about.contact}

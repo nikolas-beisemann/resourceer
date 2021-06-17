@@ -1,0 +1,26 @@
+@startuml
+
+package pug {
+	package include {
+		(component-allocation)
+		(component-milestone)
+		(component-project)
+		(component-task)
+		(component-timeline) --> (timeline-allocations)
+		(component-timeline) --> (timeline-description)
+		(component-timeline) --> (timeline-milestones)
+		(component-timeline) --> (timeline-parameters)
+		(component-timeline) --> (timeline-summary)
+		(component-timeline) --> (timeline-tasks)
+	}
+
+	(about)
+
+	(index) --> (component-allocation)
+	(index) --> (component-milestone)
+	(index) --> (component-project)
+	(index) --> (component-task)
+	(index) --> (component-timeline)
+}
+
+@enduml

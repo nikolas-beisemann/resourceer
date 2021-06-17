@@ -1,0 +1,50 @@
+[[section-data-analysis]]
+== Project Analysis
+
+Resourceer offers three different types of data analysis:
+
+* Analysis of all projects
+* Analysis of a single project
+* Analysis of a single timeline
+
+Each type of data analysis is shown graphically, and in a tabular format.
+
+You reach the analysis of all projects by not selecting a project, or deselecting the currently active project. The analysis of a single project is shown by selecting a project and choosing the "Project Summary" tab. The analysis of a single timeline is shown by selecting a timeline within the summary accordion.
+
+=== Graphical Presentation
+
+You can view the value of a given time point by hovering the mouse cursor over the point. The result is shown as a tooltip.
+
+==== Analysis of all projects
+
+A single curve showing the sum of all project efforts. You can easily identify how many employees are required for a given time period.
+
+The graph shows the beginning of the earliest project to the end of the latest project.
+
+==== Analysis of a single project
+
+A single curve showing the sum of all timelines in the currently active project. It gives a good impression of bottlenecks within a project. The combined efforts of all projects is shown as a semi transparent bar graph. This allows you to put a project's size into an overall context.
+
+The graph shows the beginning of the project to the end of the project.
+
+==== Analysis of a single timeline
+
+One curve shows you the sum of predictive and determined efforts of the selected timeline. Another curve displays the combined efforts of all timelines. The combined efforts of all projects is shown as a semi transparent bar graph.
+
+The graph shows the beginning of the timeline to the end of the timeline.
+
+=== Tabular Presentation
+
+Depending on context, there may be two or three tables displayed.
+
+==== Parameters
+
+When viewing the analysis of all projects, or the analysis of a single project, the topmost table allows an overview of time frame and duration.
+
+==== Total Summary
+
+This table lists the totals for predictions and tasks in person days, e.g. for commercial usage, as well as average employees over the duration.
+
+==== Summary over Period
+
+This table lists the combined efforts of predictions and tasks grouped by quarters of a year in person days, e.g. for commercial usage, as well as average employees over the duration.

@@ -1,0 +1,9 @@
+@startuml
+
+(index)
+
+package database {
+	(index) --> (adapter-memory)
+}
+
+@enduml

@@ -1,0 +1,13 @@
+@startuml
+
+[native]
+[frontend]
+
+package lang {
+	[native] --> (de)
+	[frontend] --> (de)
+	[native] --> (en)
+	[frontend] --> (en)
+}
+
+@enduml

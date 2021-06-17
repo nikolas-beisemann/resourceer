@@ -1,0 +1,6 @@
+dist
+node_modules
+.nyc_output
+/dev_guide
+/out
+language.json

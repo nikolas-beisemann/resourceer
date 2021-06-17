@@ -1,0 +1,40 @@
+= image:arc42-logo.png[arc42] Resourceer Developer's Guide
+Nikolas Beisemann <nikolas@disroot.org>
+:description:
+:toc:
+:imagesdir: ./assets
+
+
+**About arc42**
+
+arc42, the Template for documentation of
+software and system architecture.
+
+By Dr. Gernot Starke, Dr. Peter Hruschka and contributors.
+
+
+Template Revision: 7.0 EN (based on asciidoc), January 2017
+
+(C)
+We acknowledge that this document uses material from the
+arc 42 architecture template, http://www.arc42.de.
+Created by Dr. Peter Hruschka & Dr. Gernot Starke.
+
+'''
+
+
+:numbered:
+
+include::01_introduction_and_goals.adoc[]
+
+include::02_architecture_constraints.adoc[]
+
+include::03_system_scope_and_context.adoc[]
+
+include::04_solution_strategy.adoc[]
+
+include::05_building_block_view.adoc[]
+
+include::09_design_decisions.adoc[]
+
+include::11_technical_risks.adoc[]

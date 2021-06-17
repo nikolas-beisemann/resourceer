@@ -1,0 +1,13 @@
+#timeline-param.accordion
+	.accordion-item
+		h2#timeline-param-header.accordion-header
+			button.accordion-button(type="button" data-bs-toggle="collapse" data-bs-target="#timeline-param-collapse" aria-expanded="true" aria-controls="timeline-param-collapse") #{timeline.parameters}
+		#timeline-param-collapse.accordion-collapse.collapse.show(aria-labelledby="timeline-param-header" data-bs-parent="#timeline-param")
+			.accordion-body
+				.input-group.mb-3
+					span#timeline-param-start.input-group-text #{timeline.start}
+					input#timeline-start-date(v-model="startDate" v-bind:class="['form-control', {'is-invalid': validation.startDateInvalid}]" placeholder=datePlaceholder aria-describedBy="timeline-param-start" @change="startDateUpdate")
+					span#timeline-param-end.input-group-text #{timeline.end}
+					input#timeline-end-date(v-model="endDate" v-bind:class="['form-control', {'is-invalid': validation.endDateInvalid}]" placeholder=datePlaceholder aria-describedby="timeline-param-end" @change="endDateUpdate")
+				.text-danger(v-if="validation.startDateInvalid || validation.endDateInvalid")
+					p(v-for="message in validation.messages") {{ message }}

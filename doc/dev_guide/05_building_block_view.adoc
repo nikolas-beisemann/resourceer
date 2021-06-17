@@ -1,0 +1,174 @@
+[[section-building-block-view]]
+== Building Block View
+
+
+If not otherwise specified, components use the public interface of modules as exported by `module.exports`. In this case the interface documentation can be found as comments in the code.
+
+image:building_block_view.png[Building Block View]
+
+.Resourceer Building Blocks
+|===
+| Building Block | Description
+
+| index | Main entry point into the Electron application. Creates the main and renderer processes, and loads the frontend application.
+| native | In charge of the native aspects of the application, such as managing browser instances, and user menu.
+| frontend | The main resource management application.
+| lang | Json files with localization.
+|===
+
+Communication between frontend and backend occurs by the interprocess communication API provided by Electron. The native application uses https://www.electronjs.org/docs/api/ipc-main[ipcMain], the frontend https://www.electronjs.org/docs/api/ipc-renderer[ipcRenderer].
+
+.IPC Interface
+|===
+| Method | Direction | Description
+
+| `load-request` | `native -> frontend` | Emitted when the user has requested to import Json data into the database. Contains the Json data as string.
+| `save-request` | `native -> frontend` | Emitted when the user has requested to save Json data from the database.
+| `save-reply` | `frontend -> native` | Emitted as a response to `save-request`. Contains the Json data as string.
+| `dirty-request` | `frontend -> native` | Emitted when the database is initially changed, and needs to be saved to prevent data loss.
+| `clean-request` | `native -> frontend` | Emitted when data was saved, or confirmed to be discarded. Leads to a new `dirty-request` on next change.
+| `title-request` | `native -> frontend` | Emitted when the window title should be updated. Contains the name of the requested title as string.
+|===
+
+=== native
+
+image:building_block_native.png[native]
+
+.native Building Blocks
+|===
+| Building Block | Description
+
+| renderer | Context bridge to the frontend application.
+| window | Windows and dialogues managed by the Electron application.
+|===
+
+==== renderer
+
+image:building_block_native_renderer.png[renderer]
+
+.renderer Building Blocks
+|===
+| Building Block | Description
+
+| preload | Preload script for safely exposing the native API to the frontend application, as https://www.electronjs.org/docs/tutorial/context-isolation[advised by the Electron documentation].
+|===
+
+==== window
+
+image:building_block_native_window.png[window]
+
+.window Building Blocks
+|===
+| Building Block | Description
+
+| about | About info window.
+| app | Main application window, loading the frontend application.
+| dialog | Exposes several dialogues for user interaction with the main application window.
+| menu | User menu creation for the main application window.
+| user-guide | User guide info window.
+|===
+
+=== frontend
+
+image:building_block_frontend.png[frontend]
+
+.frontend Building Blocks
+|===
+| Building Block | Description
+
+| index a| Main entry point into the user interface.
+
+* Mounts the Vue.js application.
+* Registers the Vue.js components.
+* Manages the global chart.
+| analysis | Modules for visualizations.
+| components | Vue.js components.
+| database | Modules for database management.
+| pug | Files from which the HTML views are generated.
+| util | Modules performing utility tasks.
+|===
+
+==== analysis
+
+image:building_block_frontend_analysis.png[analysis]
+
+.analysis Building Blocks
+|===
+| Building Block | Description
+
+| assessor | Calculates resource visualizations, dependent on currently selected scope.
+| chart-manager | Generates the configuration for displaying the global chart.
+|===
+
+==== components
+
+image:building_block_frontend_components.png[components]
+
+.components Building Blocks
+|===
+| Building Block | Description
+
+| allocation | Component for resource predictions linked to a timeline.
+| milestone | Component for timeline milestones.
+| project | Component representing a project.
+| task | Component for determined efforts linked to a timeline.
+| timeline | Component representing a timeline linked to a project.
+|===
+
+==== database
+
+image:building_block_frontend_database.png[database]
+
+.database Building Blocks
+|===
+| Building Block | Description
+
+| adapter-memory | In memory database management with a very rudimentary SQL-like interface.
+|===
+
+==== pug
+
+image:building_block_frontend_pug.png[pug]
+
+.pug Building Blocks
+|===
+| Building Block | Description
+
+| index | Main page of the application.
+| about | Page containing some information about author and project.
+| include/component-allocation | Visualization of resource prediction interface.
+| include/component-milestone | Visualization of milestone interface.
+| include/component-project | Visualization of a project.
+| include/component-task | Visualization of determined effort interface.
+| include/component-timeline | Entry point for visualizing a timeline, split into further visualizations due to its complexity.
+| include/timeline-allocations | Visualization of the list of resource predictions.
+| include/timeline-description | Visualization for timeline description using Markdown.
+| include/timeline-milestones | Visualization of the list of milestones.
+| include/timeline-parameters | Visualization of the timeline configuration interface.
+| include/timeline-summary | Visualization of the timeline analysis summary.
+| include/timeline-tasks | Visualization of the list of determined efforts.
+|===
+
+==== util
+
+image:building_block_frontend_util.png[util]
+
+.util Building Blocks
+|===
+| Building Block | Description
+
+| calendar-week | Representation of a calendar week as a timepoint, also providing various methods for calculations between timepoints.
+| catmull-rom | Generator for curves based on predictive efforts. https://en.wikipedia.org/wiki/Centripetal_Catmull%E2%80%93Rom_spline[Catmull-Rom splines] are used for smooth curves intersecting each prediction point.
+|===
+
+=== lang
+
+image:building_block_lang.png[lang]
+
+.lang Building Blocks
+|===
+| Building Block | Description
+
+| de | German localization.
+| en | English localization.
+|===

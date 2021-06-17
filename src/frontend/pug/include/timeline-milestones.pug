@@ -1,0 +1,20 @@
+#timeline-ms.accordion
+	.accordion-item
+		h2#timeline-ms-header.accordion-header
+			button.accordion-button(type="button" data-bs-toggle="collapse" data-bs-target="#timeline-ms-collapse" aria-expanded="true" aria-controls="timeline-ms-collapse") #{timeline.milestones}
+		#timeline-ms-collapse.accordion-collapse.collapse.show(aria-labelledby="timeline-ms-header" data-bs-parent="#timeline-ms")
+			.accordion-body
+				table.table
+					thead
+						tr
+							th(scope="col") #{timeline.date}
+							th(scope="col") #{namePlaceholder}
+							th(scope="col")
+					tbody
+						tr(v-if="milestones.length === 0")
+							td(colspan="3") #{timeline.noMilestones}
+						milestone(v-else v-for="milestone in milestones" v-bind:id="milestone.id" v-bind:start-date="startDate" v-bind:end-date="endDate" @delete="deleteMilestone" @recalculate="recalculate")
+					tfoot.d-print-none
+						tr
+							td(colspan="3")
+								span.bi.bi-plus-square(@click="createMilestone")

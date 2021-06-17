@@ -1,0 +1,50 @@
+[[section-data-analysis]]
+== Projektdaten auswerten
+
+Resourceer bietet dir drei verschiedene Arten von Datenauswertung an:
+
+* Gesamtauswertung aller Projekte
+* Auswertung eines Projekts
+* Auswertung einer Zeitschiene
+
+Jede dieser Auswertungen wird sowohl graphisch als auch tabellarisch aufbereitet.
+
+Zur Gesamtauswertung aller Projekte gelangst du, wenn du kein Projekt ausgewählt hast, beziehungsweise das aktuell ausgewählte Projekt abwählst. Zur Auswertung eines Projekts kommst du, indem du ein Projekt auswählst und auf den Reiter "Projektauswertung" klickst. Die Auswertung einer Zeitschiene siehst du bei ausgewählter Zeitschiene im Auswertungs-Bereich.
+
+=== Graphische Darstellung
+
+Die einzelnen Werte während eines Zeitpunkts kannst du dir ansehen, indem du mit dem Mauscursor über einen Punkt fährst. Das Ergebnis wird dir dann als Tooltip eingeblendet.
+
+==== Gesamtauswertung aller Projekte
+
+Eine Kurve, welche die Summe aller Projektaufwände darstellt. Hier kannst du schnell überblicken, wie viele Beschäftigte zu welchem Zeitraum gebunden sind.
+
+Der Zeitabschnitt vom Beginn des frühesten Projekts bis zum Ende des spätesten Projekts wird dargestellt.
+
+==== Auswertung eines Projekts
+
+Eine Kurve, welche die Summe aller Zeitschienen im ausgewählten Projekt darstellt. Sie lässt dich schnell erkennen, wo Ressourcenengpässe im Projekt zu erwarten sind. Die Gesamtaufwände aller Projekte wird als halbtransparentes Balkendiagramm ebenfalls angezeigt, was eine schnelle Einordnung der Projektgröße im Gesamtkontext erlaubt.
+
+Der Zeitabschnitt vom Beginn des Projekts bis zum Ende des Projekts wird dargestellt.
+
+==== Auswertung einer Zeitschiene
+
+Eine Kurve zeigt dir die Summe der prädiktiven und bekannten Aufwände der ausgewählten Zeitschiene. Eine weitere Kurve bildet den gesamten Aufwand aller Zeitschienen ab. Die Gesamtaufwände aller Projekte wird als halbtransparentes Balkendiagramm ebenfalls angezeigt.
+
+Der Zeitabschnitt vom Beginn der Zeitschiene bis zum Ende der Zeitschiene wird dargestellt.
+
+=== Tabellarische Darstellung
+
+Du findest zwei oder drei Tabellen je nach Kontext.
+
+==== Parameter
+
+Bei der Gesamtauswertung aller Projekte und der Auswertung eines Projekts gibt die oberste Tabelle dir einen Überblick über Parameter, wie Zeitraum und Laufzeit.
+
+==== Gesamtaufwände
+
+Diese Tabelle listet die Gesamtaufwände für Prädiktionen und Beauftragungen sowohl in Leistungstagen, zum Beispiel für kommerzielle Verwendung, als auch in durschnittlich benötigten Beschäftigten auf.
+
+==== Aufwände über Laufzeit
+
+Diese Tabelle listet die Aufwände der Summe von Prädiktionen und Beauftragungen quartalsweise sowohl in Leistungstagen, zum Beispiel für kommerzielle Verwendung, als auch in durschnittlich benötigten Beschäftigten auf.

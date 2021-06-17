@@ -1,0 +1,58 @@
+#timeline-sum.accordion.mb-5
+	.accordion-item
+		h2#timeline-sum-header.accordion-header
+			button.accordion-button(type="button" data-bs-toggle="collapse" data-bs-target="#timeline-sum-collapse" aria-expanded="true" aria-controls="timeline-param-collapse") #{timeline.summary}
+		#timeline-sum-collapse.accordion-collapse.collapse.show(aria-labelledby="timeline-sum-header" data-bs-parent="#timeline-sum")
+			.accordion-body
+				table.table
+					tbody
+						tr
+							th(scope="row") #{timeline.runtime}
+							td {{ summary.runtime }}
+						tr
+							th(scope="row") #{timeline.numQuarters}
+							td {{ summary.numQuarters }}
+				table.table
+					thead
+						tr
+							th(scope="col") #{timeline.quarter}
+							th(scope="col") #{timeline.workdays}
+							th(scope="col") #{timeline.personDays}
+							th(scope="col") #{timeline.workforce}
+					tbody
+						tr(v-if="summary.quarters.length>0" v-for="quarter in summary.quarters")
+							td {{ quarter.label }}
+							td {{ quarter.duration }}
+							td {{ quarter.allocated }}
+							td {{ quarter.workforce }}
+						tr(v-else)
+							td(colspan="4") #{timeline.noQuarters}
+					tfoot
+						tr
+							td
+								em #{timeline.amountTimeline}
+							td
+								em {{ summary.total.duration }}
+							td
+								em {{ summary.total.timelineAllocated }}
+							td
+								em {{ summary.total.timelineWorkforce }}
+						tr
+							td
+								em #{timeline.amountTasks}
+							td
+								em {{ summary.total.duration }}
+							td
+								em {{ summary.total.taskAllocated }}
+							td
+								em {{ summary.total.taskWorkforce }}
+						tr
+							td
+								strong #{timeline.sum}
+							td
+								strong {{ summary.total.duration }}
+							td
+								strong {{ summary.total.allocated }}
+							td
+								strong {{ summary.total.workforce }}
+				.alert.alert-secondary.text-center #{timeline.noticeRounding}

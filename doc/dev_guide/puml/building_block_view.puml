@@ -1,0 +1,15 @@
+@startuml
+
+package Resourceer {
+	interface ipc
+
+	(index) -down-> [native]
+	(index) -down-> [frontend]
+	[frontend] -left- ipc
+	[native] -right- ipc
+
+	[frontend] -down-> [lang]
+	[native] -down-> [lang]
+}
+
+@enduml

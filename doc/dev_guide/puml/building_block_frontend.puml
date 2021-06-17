@@ -1,0 +1,22 @@
+@startuml
+
+interface ipc as API
+[lang]
+
+package frontend {
+	(index) --> [analysis]
+	(index) --> [components]
+	(index) --> [database]
+	(index) --> [lang]
+	(index) -- API
+
+	[analysis] --> [util]
+
+	[components] --> [analysis]
+	[components] --> [database]
+	[components] --> [lang]
+	[components] --> [pug]
+	[components] --> [util]
+}
+
+@enduml
