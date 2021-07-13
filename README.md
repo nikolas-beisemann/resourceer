@@ -10,17 +10,17 @@ It is available for Windows and Linux, and offers localizations for the English 
 
 ### Windows
 
-Check the downloads for the Windows installer. Running the installer creates a user local installation for Resourceer. No administrative rights required.
+Check the [downloads](https://github.com/nikolas-beisemann/resourceer/releases) for the Windows installer. Running the installer creates a user local installation for Resourceer. No administrative rights required.
 
 ### Linux
 
-Check the downloads for the Linux packages. Run the `resourceer` binary within the supplied zip archive.
+Check the [downloads](https://github.com/nikolas-beisemann/resourceer/releases) for the Linux packages. Run the `resourceer` binary within the supplied zip archive.
 
 ## Development
 
 ### Building the Application
 
-After cloning the repository and switching into the cloned directory, run
+After cloning the [repository](https://github.com/nikolas-beisemann/resourceer) and switching into the cloned directory, run
 
 ```
 npm i
