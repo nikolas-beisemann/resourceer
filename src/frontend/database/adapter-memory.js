@@ -152,6 +152,7 @@ const Adapter = class {
     const obj = {};
     for (const table of tables) {
       obj[table] = this[table];
+      obj[`${table}Id`] = this[`${table}Id`];
     }
     return JSON.stringify(obj);
   }
@@ -164,11 +165,8 @@ const Adapter = class {
     this._dirty = false;
     const obj = JSON.parse(cfg);
     for (const table of Object.keys(obj)) {
-      this[table] = [];
-      this[`${table}Id`] = 0;
-      for (const row of obj[table]) {
-        this.create(table, row, true);
-      }
+      this[table] = obj[table];
+      this[`${table}Id`] = obj[`${table}Id`];
     }
     if (this._onReload !== undefined) {
       this._onReload();

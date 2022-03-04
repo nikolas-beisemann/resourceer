@@ -123,7 +123,10 @@ describe('adapter-memory', () => {
   });
 
   it('shall allow to dump empty contents into string', () => {
-    expect(JSON.parse(adapter.dump(['projects']))).toEqual({projects: []});
+    expect(JSON.parse(adapter.dump(['projects']))).toEqual({
+      projects: [],
+      projectsId: 0,
+    });
   });
   it('shall allow to dump non-empty contents into string', () => {
     adapter.create('projects', {name: 'Foo'});
