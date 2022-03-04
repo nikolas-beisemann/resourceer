@@ -1,4 +1,4 @@
-/* Copyright (c) 2021 Nikolas Beisemann */
+/* Copyright (c) 2021-2022 Nikolas Beisemann */
 
 // There is a weird issue when using Jasmine along with Asciidoctor: when
 // @asciidoctor/core has been required, new Jasmine() breaks. It is not clear

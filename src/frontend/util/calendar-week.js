@@ -1,4 +1,4 @@
-/* Copyright (c) 2021 Nikolas Beisemann */
+/* Copyright (c) 2021-2022 Nikolas Beisemann */
 
 /** Represents a calendar week */
 const cw = class CW {

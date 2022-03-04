@@ -1,4 +1,4 @@
-/* Copyright (c) 2021 Nikolas Beisemann */
+/* Copyright (c) 2021-2022 Nikolas Beisemann */
 
 const browserify = require('browserify');
 const src = require('vinyl-source-stream');

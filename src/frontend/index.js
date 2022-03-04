@@ -1,4 +1,4 @@
-/* Copyright (c) 2021 Nikolas Beisemann */
+/* Copyright (c) 2021-2022 Nikolas Beisemann */
 
 // eslint should not complain about the unused variables, because we need the
 // files to be packaged by browserify. this only happens if we require them.
