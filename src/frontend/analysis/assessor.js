@@ -3,6 +3,8 @@
 const {CalendarWeek} = require('../util/calendar-week');
 const catmullRom = require('../util/catmull-rom');
 
+const wfMod = 13 / 11;
+
 exports.Assessor = class {
   /**
    * Create new assessor.
@@ -78,7 +80,7 @@ exports.Assessor = class {
           curves.push({
             sum: amount,
             data: labels.map((label) => {
-              return {x: label, y: (amount / 5) / labels.length};
+              return {x: label, y: ((amount / 5) * wfMod) / labels.length};
             }),
           });
         }
@@ -140,9 +142,9 @@ exports.Assessor = class {
     });
 
     return {
-      timelineTotal: Math.round(tlSum),
+      timelineTotal: Math.round(tlSum / wfMod),
       timelineAverage: ((tlSum / 5) / curve.length).toFixed(2),
-      taskTotal: Math.round(taskSum),
+      taskTotal: Math.round(taskSum / wfMod),
       taskAverage: ((taskSum / 5) / curve.length).toFixed(2),
       curve,
     };
@@ -226,13 +228,14 @@ exports.Assessor = class {
       let l;
       quarter.allocated = 0;
       for (l = 0; l < quarter.duration; ++l) {
-        quarter.allocated += meldedTimeline.curve[idx].y;
+        quarter.allocated += meldedTimeline.curve[idx].y / wfMod;
         ++idx;
       }
       quarter.allocated = Math.round(quarter.allocated * 5);
       totalAllocated += quarter.allocated;
       quarter.duration *= 5;
-      quarter.workforce = (quarter.allocated / quarter.duration).toFixed(2);
+      quarter.workforce = quarter.allocated / quarter.duration;
+      quarter.workforce = (quarter.workforce * wfMod).toFixed(2);
       quarters.push(quarter);
     }
 
@@ -242,6 +245,8 @@ exports.Assessor = class {
     const end = curveLength > 0 ?
         meldedTimeline.curve[curveLength - 1].x : 'N/A';
 
+    let workforce = totalAllocated / (runtime * 5);
+    workforce = (workforce * wfMod).toFixed(2);
     return {
       runtime,
       numQuarters,
@@ -249,7 +254,7 @@ exports.Assessor = class {
       total: {
         duration: runtime * 5,
         allocated: totalAllocated,
-        workforce: (totalAllocated / (runtime * 5)).toFixed(2),
+        workforce,
         timelineAllocated: meldedTimeline.timelineTotal,
         timelineWorkforce: meldedTimeline.timelineAverage,
         taskAllocated: meldedTimeline.taskTotal,
