@@ -54,6 +54,7 @@
     "chartjs-plugin-annotation": "^1.0.1"
   },
   "dependencies": {
+    "@popperjs/core": "^2.9.2",
     "electron-squirrel-startup": "^1.0.0"
   },
   "config": {
@@ -85,7 +86,8 @@
         {
           "name": "@electron-forge/maker-zip",
           "platforms": [
-            "linux"
+            "linux",
+            "win32"
           ]
         }
       ]
