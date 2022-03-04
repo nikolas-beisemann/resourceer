@@ -48,3 +48,7 @@ Diese Tabelle listet die Gesamtaufwände für Prädiktionen und Beauftragungen s
 ==== Aufwände über Laufzeit
 
 Diese Tabelle listet die Aufwände der Summe von Prädiktionen und Beauftragungen quartalsweise sowohl in Leistungstagen, zum Beispiel für kommerzielle Verwendung, als auch in durschnittlich benötigten Beschäftigten auf.
+
+=== Faktor für Berechnung von Prädiktionen und Beschäftigten
+
+Da Beschäftigte üblicherweise nicht jeden Arbeitstag des Jahres auch tatsächlich arbeiten (z.B. aufgrund Urlaub, Krankheit, Fortbildung, etc.), verwendet Resourceer einen festen Faktor um dies bei der Berechnung der Leistungstage auf Basis von Prädiktionen, sowie der Berechnung von durchschnittlich benötigten Beschäftigten zu berücksichtigen. Es wird hierbei davon ausgegangen, dass Beschäftigte von 260 Arbeitstagen im Jahr lediglich 220 Tage tatsächlich am Projekt arbeiten können.

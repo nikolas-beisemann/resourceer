@@ -10,4 +10,6 @@ Technical debts are ordered by priority, meaning top items carry the most risk t
 
 | Test native application | There is functional testing for the frontend with Selenium, but there are no tests right now for the native application. This means that any bugs regarding IPC, user menu, etc. are not detected. This may lead to regresssions.
 | Validators within Vue.js | While input validation is a user interface related task, it is also one that could be properly tested by unit tests if it were to be separated into its own module, e.g. within the `util` unit.
+| Multiplier for calculations | The multiplier used for calculating person days based on predictions, and the work force necessary during projects, is fixed within the assessor. There will likely be users wanting to adjust this value to serve their needs, and thus it should be configurable in future iterations.
+| Gecko driver issues | Newer gecko drivers apparently have the issue of not moving the requested item into view during functional testing. This means that functional testing fails with current gecko drivers. This needs to be addressed, but has proven to be a non-trivial fix. It is currently unclear how much of functional testing has to be rewritten to take this into account.
 |===

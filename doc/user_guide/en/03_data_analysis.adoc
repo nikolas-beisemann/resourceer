@@ -48,3 +48,7 @@ This table lists the totals for predictions and tasks in person days, e.g. for c
 ==== Summary over Period
 
 This table lists the combined efforts of predictions and tasks grouped by quarters of a year in person days, e.g. for commercial usage, as well as average employees over the duration.
+
+=== Multiplier for Calculations of Predictions and Employees
+
+Employees are usually not actually working every work day of the year, e.g. because of vacation, sick leave, training, etc. Thus Resourceer uses a fixed multiplier to take this into account when calculating person days on basis of predictions, as well as calculations of average employees. The fixed multiplier assumes that employees will work an average of 220 days out of the 260 work days of the year.
