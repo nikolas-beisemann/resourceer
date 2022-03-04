@@ -148,12 +148,14 @@ const componentTimeline = (adapter, language) => {
         this.allocations = [...adapter.read('allocations', ['id'],
             {timeline: this.id})];
         this.summary = assessor.summary([this.id]);
+        this.recalculate();
       },
       deleteTask(e, id) {
         adapter.delete('tasks', {id});
         this.tasks = [...adapter.read('tasks', ['id'],
             {timeline: this.id})];
         this.summary = assessor.summary([this.id]);
+        this.recalculate();
       },
     },
     emits: [
