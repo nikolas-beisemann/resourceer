@@ -4,3 +4,4 @@ node_modules
 /dev_guide
 /out
 language.json
+.DS_Store
